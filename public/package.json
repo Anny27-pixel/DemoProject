@@ -1,0 +1,13 @@
+{
+  "name": "demoproject",
+  "version": "1.0.0",
+  "description": "WRITE YOUR DOCUMENTATIONS HERE!",
+  "main": "my-script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
