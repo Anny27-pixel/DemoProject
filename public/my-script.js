@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('/api/carousel-data')
         .then(response => response.json())
         .then(data => {
-            const numCards = data.length; // Store the number of cards
+            const numCards = data.length;
 
             data.forEach(item => {
                 const card = document.createElement('div');
@@ -28,24 +28,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 cards.forEach((card, index) => {
                     card.classList.remove('left', 'center', 'right');
 
-                    let pos = (index - currentIndex + numCards) % numCards; // Corrected modulo calculation
+                    let pos = (index - currentIndex + numCards) % numCards; 
 
                     if (pos === 0) {
                         card.classList.add('center');
                     } else if (pos === 1) {
                         card.classList.add('right');
-                    } else if (pos === 2 || pos === numCards -1) { // Corrected left card logic
+                    } else if (pos === numCards - 1 || pos === 2) { 
                         card.classList.add('left');
                     }
                 });
-
 
                 const centerCard = carousel.querySelector('.card.center');
                 if (centerCard) {
                     const centerIndex = Array.from(cards).indexOf(centerCard);
                     carousel.style.transform = `translateX(-${(centerIndex - 1) * (300 + 20)}px)`;
                 }
-
             };
 
             rightBtn.addEventListener('click', () => {
@@ -58,6 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 updateCarousel();
             });
 
-            updateCarousel(); // Initial call
+            updateCarousel(); 
         });
 });
